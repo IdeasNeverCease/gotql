@@ -1,15 +1,13 @@
 # @inc/gotql
 
-> **Write GraphQL queries as objects instead of strings**
+> Write GraphQL queries as objects instead of strings
 
 *Forked from [khaosdoctor/gotql](https://github.com/khaosdoctor/gotql), I did not feel like waiting for [my PR](https://github.com/khaosdoctor/gotql/pull/5) to be accepted and I have things to do.*
 
-[![](https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square)](https://snyk.io/test/npm/@inc/gotql)
+[![Vulnerabilities in this package](https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square)](https://snyk.io/test/npm/@inc/gotql)
 
 <!--/ Gitea does not display SVGs...STILL
-<div align="center">
-  <img src="https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/gotql.svg" title="GotQL logo"/>
-</div>
+  ![GotQL logo](https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/gotql.svg)
 /-->
 
 <br/>

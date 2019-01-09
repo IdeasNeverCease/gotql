@@ -44,13 +44,7 @@ Built because manipulating strings is a real pain.
 ## Install
 
 ```sh
-$ npm install gotql
-```
-
-Or
-
-```sh
-$ yarn install gotql
+$ npm i @inc/gotql -S
 ```
 
 ## Basic Usage

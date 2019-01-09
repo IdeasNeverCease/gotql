@@ -1,11 +1,11 @@
 <h1 align="center">@inc/gotql</h1>
 
 <div align="center">
-  <strong>Write GraphQL queries as objects instead of strings</strong><br/>
-  <em>Forked from <a href="https://github.com/khaosdoctor/gotql" title="Original source of GraphQL">khaosdoctor/gotql</a></em>
+  **Write GraphQL queries as objects instead of strings**<br/>
+  *Forked from [khaosdoctor/gotql](https://github.com/khaosdoctor/gotql), I did not feel like waiting for [my PR](https://github.com/khaosdoctor/gotql/pull/5) to be accepted and I have things to do.*
 </div>
 
-<!--/
+<!--/ Gitea does not display SVGs...STILL
 <div align="center">
   <img src="https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/gotql.svg" title="GotQL logo"/>
 </div>
@@ -14,9 +14,7 @@
 <br/>
 
 <div align="center">
-  <a href="https://snyk.io/test/npm/@inc/gotql">
-    <img src="https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square"/>
-  </a>
+  [![](https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square)](https://snyk.io/test/npm/@inc/gotql)
 </div>
 
 <br/>

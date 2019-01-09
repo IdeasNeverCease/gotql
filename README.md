@@ -11,6 +11,8 @@
 </div>
 /-->
 
+<br/>
+
 <div align="center">
   <a href="https://snyk.io/test/npm/@inc/gotql">
     <img src="https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square"/>

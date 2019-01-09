@@ -1,4 +1,4 @@
-<h1 align="center">@inc/gotqL</h1>
+<h1 align="center">@inc/gotql</h1>
 
 <div align="center">
   <strong>Write GraphQL queries as objects instead of strings</strong><br/>
@@ -10,6 +10,12 @@
   <img src="https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/gotql.svg" title="GotQL logo"/>
 </div>
 /-->
+
+<div align="center">
+  <a href="https://snyk.io/test/npm/@inc/gotql">
+    <img src="https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square"/>
+  </a>
+</div>
 
 <br/>
 

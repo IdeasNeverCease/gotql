@@ -1,13 +1,17 @@
-<h1 align="center">@inc/GotQL</h1>
+<h1 align="center">@inc/gotqL</h1>
 
 <div align="center">
   <strong>Write GraphQL queries as objects instead of strings</strong><br/>
   <em>Forked from <a href="https://github.com/khaosdoctor/gotql" title="Original source of GraphQL">khaosdoctor/gotql</a></em>
 </div>
 
+<!--/
 <div align="center">
-  <img src="./media/gotql.svg" title="GotQL logo"/>
+  <img src="https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/gotql.svg" title="GotQL logo"/>
 </div>
+/-->
+
+<br/>
 
 This is a better implementation of the [GraphQL](https://github.com/facebook/graphql) query API via NodeJS, created as a wrapper of [Got](http://github.com/sindresorhus/got). It works like a transpiler, with a built in HTTPRequest Client (Got), allowing you to write your GraphQL queries as Javascript Objects instead of strings.
 
@@ -412,4 +416,4 @@ If `escape` is set to `true`, the output would be:
 query { users(type: "internal") { name age }}
 ```
 
-> **Note:** Variables such as described [here](#query-with-variables) _will __not___ be recognized. If the arg object is not an `[argName]: value`, variables will not pass through the definition check (GotQL warns if a variable is not declared but used on operation).
+> **Note:** Variables such as described [here](#query-with-variables) _will **not**_ be recognized. If the arg object is not an `[argName]: value`, variables will not pass through the definition check (GotQL warns if a variable is not declared but used on operation).

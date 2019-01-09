@@ -43,7 +43,7 @@ const runner = require("./modules/runner");
  */
 function query(endPoint, query, options) {
   const logger = new Logger(options);
-  logger.log("‧‧‧ Starting a new query\n\n"); // eslint-disable-line padding-line-between-statements
+  logger.log("\n‧‧‧ Starting a new query\n\n"); // eslint-disable-line padding-line-between-statements
 
   return runner.run(endPoint, query, options, "query", require("got"));
 }

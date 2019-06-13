@@ -1,26 +1,27 @@
 {
   "author": {
-    "email": "paul@inc.sh",
-    "name": "Paul Anthony Webb"
+    "email": "paul+code@webb.page",
+    "name": "netop://ウエハ",
+    "url": "https://webb.page"
   },
   "bugs": {
     "url": "https://hub.socii.network/inc"
   },
   "dependencies": {
-    "got": "^9.5.0",
-    "prepend-http": "^2.0.0"
+    "got": "^9.6.0",
+    "prepend-http": "^3.0.1"
   },
   "description": "A GraphQL query framework for server-side apps",
   "devDependencies": {
-    "@inc/eslint-config": "^1.1.2",
-    "ava": "^1.0.1",
-    "eslint": "^5.12.0",
-    "husky": "^1.3.1",
+    "@inc/eslint-config": "^1.1.3",
+    "ava": "^2.1.0",
+    "eslint": "^5.16.0",
+    "husky": "^2.4.1",
     "npm-run-all": "^4.1.5",
-    "sinon": "^7.2.2",
+    "sinon": "^7.3.2",
     "snazzy": "^8.0.0",
     "standardx": "^3.0.1",
-    "updates": "^6.0.3"
+    "updates": "^8.1.0"
   },
   "engines": {
     "node": ">=11"
@@ -48,13 +49,16 @@
   "main": "index.js",
   "name": "@inc/gotql",
   "private": false,
-  "repository": "https://git.inc.sh/IdeasNeverCease/gotql.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.inc.sh/IdeasNeverCease/gotql.git"
+  },
   "scripts": {
     "format": "eslint '**/*.js' --fix",
     "test": "run-s test:*",
-    "test:dependencies": "updates -u ./",
+    "test:dependencies": "updates --update ./",
     "test:lint": "standardx --verbose | snazzy",
     "test:test": "ava --color -v -T 10000"
   },
-  "version": "1.4.1"
+  "version": "2019.06.13"
 }

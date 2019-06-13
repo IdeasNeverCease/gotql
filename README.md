@@ -2,7 +2,7 @@
 
 > Write GraphQL queries as objects instead of strings
 
-*Forked from [khaosdoctor/gotql](https://github.com/khaosdoctor/gotql), I did not feel like waiting for [my PR](https://github.com/khaosdoctor/gotql/pull/5) to be accepted and I have things to do.*
+*Forked from [khaosdoctor/gotql](https://github.com/khaosdoctor/gotql) because I did not feel like waiting nearly four months for [my PR](https://github.com/khaosdoctor/gotql/pull/5) to be accepted and I had things to do.*
 
 [![Vulnerabilities in this package](https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square)](https://snyk.io/test/npm/@inc/gotql)
 
@@ -43,31 +43,35 @@ Built because manipulating strings is a real pain.
 ## Install
 
 ```sh
-$ npm i @inc/gotql -S
+$ npm i @inc/gotql
 ```
 
 ## Basic Usage
 
 ```js
-const gotQl = require("gotql")
+import gotQl from "gotql";
 
 const query = {
   operation: {
     name: "users",
-    fields: ["name", "age", "id"]
+    fields: [
+      "age",
+      "id",
+      "name"
+    ]
   }
-}
+};
 
 const options = {
+  debug: false,
   headers: {
     "Authorization": "Bearer <token>"
-  },
-  debug: false
-}
+  }
+};
 
 gotQL.query("mygraphqlendpoint.com.br/api", query, options)
   .then(response => console.log(response.data))
-  .catch(console.error)
+  .catch(error => console.error(error));
 ```
 
 ## What is it?
@@ -80,29 +84,34 @@ Manipulating strings is very smelly, even on dynamically typed languages. So, in
 
 ![](./media/motivation-example.png)
 
-Which can be translated to something waay more readable in a JSON format like this:
+Which can be translated to something more readable in a JSON format like this:
 
 ```js
 const mutation = {
-  operation {
+  operation: {
     name: "addLog",
     args: {
-      logType: { value: "status_change", escape: false}, // Enum Value
       fromState: variables.fromState,
-      toState: variables.toState,
-      idUser: variables.idUser,
       idCampaign: variables.idCampaign,
+      idUser: variables.idUser,
+      logType: {
+        escape: false,
+        value: "status_change"
+      }, // Enum Value
       owner: {
-        ownerType: variables.ownerType,
-        username: variables.username,
-        picture: variables.picture,
+        id: variables.id,
         name: variables.name,
-        id: variables.id
-      }
+        ownerType: variables.ownerType,
+        picture: variables.picture,
+        username: variables.username
+      },
+      toState: variables.toState
     },
-    fields: [ "uuid" ]
+    fields: [
+      "uuid"
+    ]
   }
-}
+};
 ```
 
 This is why GotQL was created.
@@ -110,7 +119,7 @@ This is why GotQL was created.
 ## API
 
 ```js
-gotQl.query(graphQLEndpoint, query, [options])
+gotQl.query(graphQLEndpoint, query, [options]);
 ```
 
 - **Description**: Performs a graphQL query
@@ -139,7 +148,7 @@ gotQl.query(graphQLEndpoint, query, [options])
 ---
 
 ```js
-gotQl.mutation(graphQLEndpoint, query, [options])
+gotQl.mutation(graphQLEndpoint, query, [options]);
 ```
 
 - **Description**: Performs a graphQL mutation
@@ -168,7 +177,7 @@ gotQl.mutation(graphQLEndpoint, query, [options])
 ---
 
 ```js
-gotQl.parser(query, type)
+gotQl.parser(query, type);
 ```
 
 - **Description**: Parses a JSON-Like query and returns the query"s string
@@ -188,7 +197,7 @@ gotQl.parser(query, type)
 All methods return a `string` like this:
 
 ```js
-const response = "query { test { name args } }"
+const response = "query { test { name args } }";
 ```
 
 ## The JSON query format
@@ -199,33 +208,33 @@ This is a generic model of a JSONLike query:
 
 ```js
 const query = {
-    name?: string;
-    operation: {
-        name: string;
-        alias?: string;
-        args?: {
-            [argName: string]: any;
-        } | {
-          [argName: string]: {
-              value: string;
-              escape: boolean;
-          };
-        };
-        fields: (string | {
-            [fieldName: string]: [{
-                fields?: (string | {
-                    [fieldName: string]: [any];
-                })[];
-            }];
+  name?: string;
+  operation: {
+    name: string;
+    alias?: string;
+    args?: {
+      [argName: string]: any;
+    } | {
+      [argName: string]: {
+        escape: boolean;
+        value: string;
+      };
+    };
+    fields: (string | {
+      [fieldName: string]: [{
+        fields?: (string | {
+          [fieldName: string]: [any];
         })[];
+      }];
+    })[];
+  };
+  variables?: {
+    [varName: string]: {
+      type: string;
+      value: string;
     };
-    variables?: {
-        [varName: string]: {
-            type: string;
-            value: string;
-        };
-    };
-}
+  };
+};
 ```
 
 ### Description
@@ -278,9 +287,12 @@ const query = {
 const query = {
   operation: {
     name: "users",
-    fields: ["name", "age"]
+    fields: [
+      "age",
+      "name"
+    ]
   }
-}
+};
 ```
 
 Outputs:
@@ -296,9 +308,12 @@ const query = {
   name: "myQuery",
   operation: {
     name: "users",
-    fields: ["name", "age"]
+    fields: [
+      "age",
+      "name"
+    ]
   }
-}
+};
 ```
 
 Outputs:
@@ -315,8 +330,11 @@ const query = {
     name: "user",
     args: {
       name: "T'Challa"
-    }
-    fields: ["name", "age"]
+    },
+    fields: [
+      "age",
+      "name"
+    ]
   }
 }
 ```
@@ -331,20 +349,23 @@ query { user(name: "T'Challa") { name age }}
 
 ```js
 const query = {
+  operation: {
+    name: "user",
+    args: {
+      name: "$name"
+    },
+    fields: [
+      "age",
+      "name"
+    ]
+  },
   variables: {
     name: {
       type: "string!",
       value: "T'Challa"
     }
-  },
-  operation: {
-    name: "user",
-    args: {
-      name: "$name"
-    }
-    fields: ["name", "age"]
   }
-}
+},
 ```
 
 Outputs:
@@ -357,7 +378,9 @@ Variables are sent on a separate object to graphQL.
 
 ```json
 {
-  "variables": { "name": "T'Challa" }
+  "variables": {
+    "name": "T'Challa"
+  }
 }
 ```
 
@@ -367,9 +390,20 @@ Variables are sent on a separate object to graphQL.
 const query = {
   operation: {
     name: "users",
-    fields: ["name", "age", { friends: { fields: ["name", "age"] }}]
+    fields: [
+      "age",
+      "name",
+      {
+        friends: {
+          fields: [
+            "age",
+            "name"
+          ]
+        }
+      }
+    ]
   }
-}
+};
 ```
 
 Outputs:
@@ -388,13 +422,16 @@ const query = {
     name: "user",
     args: {
       type: {
-        value: "internal",
-        escape: false
+        escape: false,
+        value: "internal"
       }
-    }
-    fields: ["name", "age"]
+    },
+    fields: [
+      "age",
+      "name"
+    ]
   }
-}
+};
 ```
 
 Outputs:

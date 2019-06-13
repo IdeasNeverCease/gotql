@@ -125,7 +125,7 @@ describe("Should return an error when args has variable and variable is not decl
 
   try {
     parse(query, "query");
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Failed to parse operation \"TestOp\" => Variable \"name\" is defined on operation but it has neither a type or a value");
     assert.deepEqual(error.name, "Error");
   }
@@ -150,7 +150,7 @@ describe("Should return an error when type is null", async assert => {
 
   try {
     parse(query);
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Type must be either \"query\" or \"mutation\"");
     assert.deepEqual(error.name, "Error");
   }
@@ -180,7 +180,7 @@ describe("Should return an error when args has variable and variable is missing 
 
   try {
     parse(query, "query");
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Failed to parse operation \"TestOp\" => Variable \"name\" is defined on operation but it has neither a type or a value");
     assert.deepEqual(error.name, "Error");
   }
@@ -210,7 +210,7 @@ describe("Should return an error when args has variable and variable is missing 
 
   try {
     parse(query, "query");
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Failed to parse operation \"TestOp\" => Variable \"name\" is defined on operation but it has neither a type or a value");
     assert.deepEqual(error.name, "Error");
   }
@@ -240,7 +240,7 @@ describe("Should return an error when args has variable and variable is not pres
 
   try {
     parse(query, "query");
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Failed to parse operation \"TestOp\" => Variable \"name\" is defined on operation but it has neither a type or a value");
     assert.deepEqual(error.name, "Error");
   }
@@ -261,7 +261,7 @@ describe("Should return an error when operation has no name", async assert => {
 
   try {
     parse(query, "query");
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Name is required for GraphQL operation");
     assert.deepEqual(error.name, "Error");
   }
@@ -279,7 +279,7 @@ describe("Should return an error when operation has no fields", async assert => 
 
   try {
     parse(query, "query");
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Field list is required for operation \"TestOp\"");
     assert.deepEqual(error.name, "Error");
   }
@@ -294,7 +294,7 @@ describe("Should return an error when no operation exists", async assert => {
 
   try {
     parse(query, "query");
-  } catch (error) {
+  } catch(error) {
     assert.is(error.message, "Parse error: Query must have at least one operation");
     assert.deepEqual(error.name, "Error");
   }

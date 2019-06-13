@@ -24,8 +24,8 @@ function getHeaders(headers) {
 
   const defaultHeaders = {
     "Accept-Encoding": "gzip, deflate",
-    "User-Agent": `GotQL ${require("../../package.json").version}`,
-    "X-Powered-By": "GotQL - The server-side GraphQL query engine"
+    "User-Agent": `@inc/gotql ${require("../../package.json").version}`,
+    "X-Powered-By": "@inc/gotql — The server-side GraphQL query engine"
   };
 
   return { ...headers, ...defaultHeaders };
@@ -116,7 +116,7 @@ async function run(endPoint, query, options, type, got) {
     logger.log(`‧‧‧ Response: ${JSON.stringify(response.body).toString()}\n\n`); // eslint-disable-line padding-line-between-statements
 
     return handleResponse(response, options);
-  } catch (error) {
+  } catch(error) {
     throw new Error(`Error when executing query: ${error.message}`);
   }
 }

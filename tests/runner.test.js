@@ -7,9 +7,13 @@
 import describe from "ava";
 import sinon from "sinon";
 
-//  U T I L
+//  U T I L S
 
 import runner from "../src/modules/runner";
+
+const headerEncoding = "gzip, deflate";
+const headerPoweredBy = "@inc/gotql — The server-side GraphQL query engine";
+const headerUserAgent = `@inc/gotql ${require("../package.json").version}`;
 
 
 
@@ -75,9 +79,9 @@ describe("Should successfully perform a simple query on DNS endpoint", async ass
 
   const payload = {
     headers: {
-      "X-Powered-By": "GotQL - The server-side GraphQL query engine",
-      "User-Agent": `GotQL ${require("../package.json").version}`,
-      "Accept-Encoding": "gzip, deflate"
+      "X-Powered-By": headerPoweredBy,
+      "User-Agent": headerUserAgent,
+      "Accept-Encoding": headerEncoding
     },
     body: {
       query: "query { TestOp { t1 t2 }}",
@@ -116,9 +120,9 @@ describe("Should successfully perform a simple query on IP endpoint", async asse
 
   const payload = {
     headers: {
-      "X-Powered-By": "GotQL - The server-side GraphQL query engine",
-      "User-Agent": `GotQL ${require("../package.json").version}`,
-      "Accept-Encoding": "gzip, deflate"
+      "X-Powered-By": headerPoweredBy,
+      "User-Agent": headerUserAgent,
+      "Accept-Encoding": headerEncoding
     },
     body: {
       query: "query { TestOp { t1 t2 }}",
@@ -157,9 +161,9 @@ describe("Should successfully handle a simple query errors on DNS endpoint", asy
 
   const payload = {
     headers: {
-      "X-Powered-By": "GotQL - The server-side GraphQL query engine",
-      "User-Agent": `GotQL ${require("../package.json").version}`,
-      "Accept-Encoding": "gzip, deflate"
+      "X-Powered-By": headerPoweredBy,
+      "User-Agent": headerUserAgent,
+      "Accept-Encoding": headerEncoding
     },
     body: {
       query: "query { TestOp { t1 t2 }}",
@@ -200,9 +204,9 @@ describe("Should successfully handle a simple query errors on IP endpoint", asyn
 
   const payload = {
     headers: {
-      "X-Powered-By": "GotQL - The server-side GraphQL query engine",
-      "User-Agent": `GotQL ${require("../package.json").version}`,
-      "Accept-Encoding": "gzip, deflate"
+      "X-Powered-By": headerPoweredBy,
+      "User-Agent": headerUserAgent,
+      "Accept-Encoding": headerEncoding
     },
     body: {
       query: "query { TestOp { t1 t2 }}",
@@ -243,9 +247,9 @@ describe("Should successfully handle a simple query errors with custom codes", a
 
   const payload = {
     headers: {
-      "X-Powered-By": "GotQL - The server-side GraphQL query engine",
-      "User-Agent": `GotQL ${require("../package.json").version}`,
-      "Accept-Encoding": "gzip, deflate"
+      "X-Powered-By": headerPoweredBy,
+      "User-Agent": headerUserAgent,
+      "Accept-Encoding": headerEncoding
     },
     body: {
       query: "query { TestOp { t1 t2 }}",
@@ -289,9 +293,9 @@ describe("Should successfully handle a simple query with custom headers", async 
 
   const payload = {
     headers: {
-      "X-Powered-By": "GotQL - The server-side GraphQL query engine",
-      "User-Agent": `GotQL ${require("../package.json").version}`,
-      "Accept-Encoding": "gzip, deflate",
+      "X-Powered-By": headerPoweredBy,
+      "User-Agent": headerUserAgent,
+      "Accept-Encoding": headerEncoding,
       "Test-Header": "t"
     },
     body: {
@@ -340,9 +344,9 @@ describe("Should successfully handle a simple query with variables", async asser
 
   const payload = {
     headers: {
-      "X-Powered-By": "GotQL - The server-side GraphQL query engine",
-      "User-Agent": `GotQL ${require("../package.json").version}`,
-      "Accept-Encoding": "gzip, deflate"
+      "X-Powered-By": headerPoweredBy,
+      "User-Agent": headerUserAgent,
+      "Accept-Encoding": headerEncoding
     },
     body: {
       query: "query ($testVar: string) { TestOp { t1 t2 }}",
@@ -389,7 +393,7 @@ describe("Should successfully handle error when type is not passed", async asser
         "",
         assert.context.got
       );
-  } catch (error) {
+  } catch(error) {
     assert.deepEqual(error.name, "Error");
     assert.deepEqual(error.message, "Error when executing query: Query type must be either `query` or `mutation`");
   }

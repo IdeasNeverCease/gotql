@@ -82,7 +82,7 @@ GotQL is a better interface for GraphQL queries. It provides a way for developer
 
 Manipulating strings is very smelly, even on dynamically typed languages. So, in order to avoid things such as this:
 
-![](./media/motivation-example.png)
+![](https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/motivation.png)
 
 Which can be translated to something more readable in a JSON format like this:
 

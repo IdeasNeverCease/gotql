@@ -336,7 +336,7 @@ const query = {
       "name"
     ]
   }
-}
+};
 ```
 
 Outputs:
@@ -365,7 +365,7 @@ const query = {
       value: "T'Challa"
     }
   }
-},
+};
 ```
 
 Outputs:

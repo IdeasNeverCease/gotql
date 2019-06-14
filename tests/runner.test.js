@@ -12,7 +12,7 @@ import sinon from "sinon";
 import runner from "../src/modules/runner";
 
 const headerEncoding = "gzip, deflate";
-const headerPoweredBy = "!NC GotQL — The server-side GraphQL query engine";
+const headerPoweredBy = "INC GotQL - The server-side GraphQL query engine";
 const headerUserAgent = `@inc/gotql ${require("../package.json").version}`;
 
 

@@ -25,7 +25,7 @@ function getHeaders(headers) {
   const defaultHeaders = {
     "Accept-Encoding": "gzip, deflate",
     "User-Agent": `@inc/gotql ${require("../../package.json").version}`,
-    "X-Powered-By": "!NC GotQL — The server-side GraphQL query engine"
+    "X-Powered-By": "INC GotQL - The server-side GraphQL query engine"
   };
 
   return { ...headers, ...defaultHeaders };

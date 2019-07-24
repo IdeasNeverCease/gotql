@@ -120,9 +120,8 @@ function checkArgVar(query, operationArg) {
   let parsedVar = getParsedVar(argValue);
   let varName;
 
-  if (checkIsBool(argValue)) {
+  if (checkIsBool(argValue))
     parsedVar = argValue;
-  }
 
   else if (checkIsVar(argValue)) { // Check if is query var, must contain "$" and not be an object
     parsedVar = argValue;
@@ -134,9 +133,7 @@ function checkArgVar(query, operationArg) {
       !query.variables[varName].type ||
       !query.variables[varName].value
     ) throw new Error(`Variable "${varName}" is defined on operation but it has neither a type or a value`);
-  }
-
-  else if (checkIsObject(argValue)) { // Check if arg is object (i.e enum)
+  } else if (checkIsObject(argValue)) { // Check if arg is object (i.e enum)
     if (!argValue.escape)
       parsedVar = argValue.value;
   }
@@ -162,7 +159,7 @@ function parseOperation(query) {
     let operationArgs = "";
 
     if (operation.args) {
-      for (let argName in operation.args)
+      for (const argName in operation.args)
         // There will be a last comma to strip later
         operationArgs += `${argName}: ${checkArgVar(query, argName)}, `;
 
@@ -197,7 +194,7 @@ function parse(query, type) {
     if (!type)
       throw new Error("Type must be either \"query\" or \"mutation\"");
 
-    let queryName = (query.name) ?
+    const queryName = (query.name) ?
       `${query.name} ` :
       "";
 

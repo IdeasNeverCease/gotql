@@ -6,9 +6,7 @@
 
 [![Vulnerabilities in this package](https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square)](https://snyk.io/test/npm/@inc/gotql)
 
-<!--/ Gitea does not display SVGs...STILL
-  ![GotQL logo](https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/gotql.svg)
-/-->
+![GotQL logo](https://code.webb.page/IdeasNeverCease/gotql/raw/master/media/gotql.svg)
 
 <br/>
 
@@ -49,7 +47,7 @@ $ npm i @inc/gotql
 ## Basic Usage
 
 ```js
-import gotQl from "gotql";
+import gotQL from "gotql";
 
 const query = {
   operation: {
@@ -119,7 +117,7 @@ This is why GotQL was created.
 ## API
 
 ```js
-gotQl.query(graphQLEndpoint, query, [options]);
+gotQL.query(graphQLEndpoint, query, [options]);
 ```
 
 - **Description**: Performs a graphQL query
@@ -148,7 +146,7 @@ gotQl.query(graphQLEndpoint, query, [options]);
 ---
 
 ```js
-gotQl.mutation(graphQLEndpoint, query, [options]);
+gotQL.mutation(graphQLEndpoint, query, [options]);
 ```
 
 - **Description**: Performs a graphQL mutation
@@ -177,7 +175,7 @@ gotQl.mutation(graphQLEndpoint, query, [options]);
 ---
 
 ```js
-gotQl.parser(query, type);
+gotQL.parser(query, type);
 ```
 
 - **Description**: Parses a JSON-Like query and returns the query"s string

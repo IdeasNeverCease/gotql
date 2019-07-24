@@ -6,10 +6,6 @@
 
 [![Vulnerabilities in this package](https://snyk.io/test/npm/@inc/gotql/badge.svg?style=flat-square)](https://snyk.io/test/npm/@inc/gotql)
 
-![GotQL logo](https://code.webb.page/IdeasNeverCease/gotql/raw/master/media/gotql.svg)
-
-<br/>
-
 This is a better implementation of the [GraphQL](https://github.com/facebook/graphql) query API via NodeJS, created as a wrapper of [Got](http://github.com/sindresorhus/got). It works like a transpiler, with a built in HTTPRequest Client (Got), allowing you to write your GraphQL queries as Javascript Objects instead of strings.
 
 Built because manipulating strings is a real pain.
@@ -63,7 +59,7 @@ const query = {
 const options = {
   debug: false,
   headers: {
-    "Authorization": "Bearer <token>"
+    Authorization: "Bearer <token>"
   }
 };
 
@@ -80,7 +76,7 @@ GotQL is a better interface for GraphQL queries. It provides a way for developer
 
 Manipulating strings is very smelly, even on dynamically typed languages. So, in order to avoid things such as this:
 
-![](https://git.inc.sh/IdeasNeverCease/gotql/raw/branch/master/media/motivation.png)
+![](https://code.webb.page/IdeasNeverCease/gotql/raw/master/media/motivation.png)
 
 Which can be translated to something more readable in a JSON format like this:
 

@@ -57,5 +57,5 @@
     "test:lint": "standardx --verbose | snazzy",
     "test:test": "ava --color -v -T 10000"
   },
-  "version": "2019.07.23"
+  "version": "2019.07.23.1"
 }
